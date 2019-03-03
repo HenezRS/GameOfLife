@@ -4,9 +4,32 @@ const tileW = 20;
 const tileH = 20;
 const gridW = gameW / tileW;
 const gridH = gameH / tileH;
+let delay;
+let isPlay;
+
+let timer;
 window.addEventListener("load", function() {
   console.log("All assets are loaded");
   let game = document.getElementById("game");
+
+  var slider = document.getElementById("range");
+  var output = document.getElementById("rangeVal");
+  output.innerHTML = `Play Update Delay: ${slider.value}ms`; // Display the default slider value
+  delay = slider.value;
+  isPlay = false;
+
+  // Update the current slider value (each time you drag the slider handle)
+  slider.oninput = function() {
+    output.innerHTML = `Play Update Delay: ${this.value}ms`;
+    delay = this.value;
+
+    if (isPlay) {
+      clearInterval(timer);
+      timer = setInterval(function() {
+        step();
+      }, delay);
+    }
+  };
 
   for (let i = 0; i < gridW; ++i) {
     for (let j = 0; j < gridH; ++j) {
@@ -29,6 +52,28 @@ function nodeClick(node) {
     node.className += " on";
     //console.log("on");
   }
+}
+
+function playOn() {
+  isPlay = true;
+  timer = setInterval(function() {
+    step();
+  }, delay);
+
+  let button = document.getElementById("play");
+  button.setAttribute("id", "stop");
+  button.setAttribute("onclick", "playOff()");
+  button.innerHTML = "Pause";
+}
+
+function playOff() {
+  isPlay = false;
+  clearInterval(timer);
+
+  let button = document.getElementById("stop");
+  button.setAttribute("id", "play");
+  button.setAttribute("onclick", "playOn()");
+  button.innerHTML = "Play";
 }
 
 function step() {

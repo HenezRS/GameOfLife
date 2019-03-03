@@ -6,6 +6,10 @@
   grid-template-columns: repeat(20, auto);
 }
 
+#range {
+  direction: rtl;
+}
+
 .node {
   border: none;
   width: 20px;

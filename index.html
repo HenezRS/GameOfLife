@@ -11,8 +11,21 @@
   <body>
     <div id="main">
       <div id="game"></div>
+      <button id="play" onclick="playOn()">Play</button>
       <button id="step" onclick="step()">Step</button>
       <button id="flip" onclick="flip()">Flip</button>
+      <div class="slidecontainer">
+        <input
+          name="range"
+          type="range"
+          min="10"
+          max="1000"
+          value="200"
+          class="slider"
+          id="range"
+        />
+      </div>
+      <label id="rangeVal" for="range"></label>
     </div>
   </body>
 </html>
