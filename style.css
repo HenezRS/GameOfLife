@@ -1,0 +1,28 @@
+#game {
+  border: red 1px dashed;
+  width: 400px;
+  height: 400px;
+  display: grid;
+  grid-template-columns: repeat(20, auto);
+}
+
+.node {
+  border: none;
+  width: 20px;
+  height: 20px;
+  background-color: yellow;
+  box-sizing: initial;
+}
+
+.node:hover {
+  border: green 1px dashed;
+  box-sizing: border-box;
+}
+
+.on {
+  background-color: blue;
+}
+
+#game > p {
+  color: red;
+}
