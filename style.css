@@ -1,9 +1,20 @@
+body {
+  background-color: #333;
+  color: white;
+}
+
 #game {
-  border: red 1px dashed;
+  border: #111 3px solid;
+  /*
   width: 400px;
   height: 400px;
+*/
+  min-height: 400px;
+  max-height: 600px;
+  max-width: 600px;
   display: grid;
   grid-template-columns: repeat(20, auto);
+  margin-bottom: 20px;
 }
 
 #range {
@@ -12,21 +23,34 @@
 
 .node {
   border: none;
-  width: 20px;
-  height: 20px;
-  background-color: yellow;
+  width: 100%;
+  height: 100%;
+  background-color: #888;
   box-sizing: initial;
 }
 
 .node:hover {
-  border: green 1px dashed;
+  /*border: green 1px dashed;*/
+  opacity: 0.4;
   box-sizing: border-box;
 }
 
 .on {
-  background-color: blue;
+  background-color: #44c;
 }
 
 #game > p {
   color: red;
+}
+
+#b {
+  color: #44c;
+}
+
+#g {
+  color: #888;
+}
+
+p {
+  max-width: 600px;
 }

@@ -6,8 +6,10 @@ const gridW = gameW / tileW;
 const gridH = gameH / tileH;
 let delay;
 let isPlay;
-
 let timer;
+
+const defaults = [[9, 9], [10, 9], [11, 9], [11, 10], [10, 11]];
+
 window.addEventListener("load", function() {
   console.log("All assets are loaded");
   let game = document.getElementById("game");
@@ -30,12 +32,18 @@ window.addEventListener("load", function() {
       }, delay);
     }
   };
-
+  console.log(defaults.length);
   for (let i = 0; i < gridW; ++i) {
     for (let j = 0; j < gridH; ++j) {
       let node = document.createElement("div");
       node.className += `node w-${i} h-${j}`;
       node.setAttribute("onmousedown", "nodeClick(this)");
+
+      for (let k = 0; k < defaults.length; ++k) {
+        if (i == defaults[k][0] && j == defaults[k][1]) {
+          nodeClick(node);
+        }
+      }
 
       game.appendChild(node);
     }
@@ -112,6 +120,19 @@ function flip() {
       let node = document.getElementsByClassName(`node w-${i} h-${j}`);
       //console.log(node[0]);
       nodeClick(node[0]);
+    }
+  }
+}
+
+function reset() {
+  console.log("clear");
+  for (let i = 0; i < gridW; ++i) {
+    for (let j = 0; j < gridH; ++j) {
+      let node = document.getElementsByClassName(`node w-${i} h-${j}`);
+
+      if (node[0].classList.contains("on")) {
+        nodeClick(node[0]);
+      }
     }
   }
 }

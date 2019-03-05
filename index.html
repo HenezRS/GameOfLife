@@ -14,6 +14,8 @@
       <button id="play" onclick="playOn()">Play</button>
       <button id="step" onclick="step()">Step</button>
       <button id="flip" onclick="flip()">Flip</button>
+      <button id="clear" onclick="reset()">Clear</button>
+
       <div class="slidecontainer">
         <input
           name="range"
@@ -26,6 +28,32 @@
         />
       </div>
       <label id="rangeVal" for="range"></label>
+
+      <h2>What is Conway's Game of Life?</h2>
+      <p>
+        A cellular automaton devised by the British mathematician John Horton
+        Conway in 1970. One interacts with the Game of Life by creating an
+        initial configuration and observing how it evolves, or, for advanced
+        players, by creating patterns with particular properties.
+        <br /><br />You can read more about it on the
+        <a
+          href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life"
+          target="_blank"
+          >wikipedia entry here</a
+        >.
+      </p>
+
+      <h3>Rules:</h3>
+      <h4>Nodes that are "alive" <span id="b">(blue)</span></h4>
+      <ul>
+        <li>0-1 neighbours: Dies to loneliness.</li>
+        <li>2-3 neighbours: Survives.</li>
+        <li>4+ neighbours: Dies to overpopulation.</li>
+      </ul>
+      <h4>Nodes that are "dead" <span id="g">(grey)</span></h4>
+      <ul>
+        <li>3 neighbours: Returns to life.</li>
+      </ul>
     </div>
   </body>
 </html>
